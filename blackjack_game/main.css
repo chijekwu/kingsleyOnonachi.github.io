@@ -151,11 +151,9 @@
   
   #status {
     font-family: Gill Sans;
-    text-shadow: 1px 1px 2px rgba(10, 10, 10, 1);
-    color: #55acee;
     position: relative;
-    opacity: 0.7;
-    font-size: 20px;
+    font-size: 30px;
+    color:whitesmoke;
   }
   
   /* buttons */
@@ -170,7 +168,6 @@
     position: relative;
     display: inline-block;
     font-family: Gill Sans;
-    text-shadow: 1px 1px 2px rgba(10, 10, 10, 1);
     z-index: 2;
   }
   
