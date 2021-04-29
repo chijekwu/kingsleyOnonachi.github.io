@@ -1,34 +1,14 @@
-/*
-	Blackjack 21
-	A simple game developed using Javascript, HTML and CSS
 
-	@author Stayko Chalakov
-	@version 1.0
-	@date 29.06.2017
-*/
 
 //namespacing
 var BlackjackJS = (function() {
 
-	/**************
-		Card class
-	***************/
-
-	/*
-		Constructor
-		@param {String} rank
-		@param {String} suit
-	*/
 	class Card {
 		constructor(rank, suit) {
 			this.rank = rank;
 			this.suit = suit;
 		}
-		/*
-				Gets the value or points of the card
-				@param {Integer} currentTotal - The current total score of the
-				player's hand
-			*/
+		
 		getValue(currentTotal) {
 			var value = 0;
 
@@ -43,9 +23,7 @@ var BlackjackJS = (function() {
 			}
 			return value;
 		}
-		/*******************
-				Renders the card
-			*******************/
+		
 		view() {
 			var htmlEntities = {
 				'hearts': '&#9829;',
@@ -64,33 +42,16 @@ var BlackjackJS = (function() {
 	}
 
 
-
-	/*************************** End of Card class ********************************/
-
-	/***************
-		Player class
-	***************/
-
-	/*
-		Constructor
-		@param {String} element - The DOM element
-		@param {Array} hand - the array which holds all the cards
-	*/
 	class Player {
 		constructor(element, hand) {
 			this.hand = hand;
 			this.element = element;
 		}
-		/*
-				Hit player with new card from the deck
-				@param {Card} card - the card to deal to the player
-			*/
+		
 		hit(card) {
 			this.hand.push(card);
 		}
-		/*
-				Returns the total score of all the cards in the hand of a player
-			*/
+		
 		getScore() {
 			var points = 0;
 			for (var i = 0; i < this.hand.length; i++) {
@@ -101,9 +62,7 @@ var BlackjackJS = (function() {
 			}
 			return points;
 		}
-		/*
-				Returns the array (hand) of cards
-			*/
+		
 		showHand() {
 			var hand = "";
 			for (var i = 0; i < this.hand.length; i++) {
@@ -113,14 +72,6 @@ var BlackjackJS = (function() {
 		}
 	}
 
-
-
-
-	/*************************** End of Player class ******************************/
-
-	/*************************
-		Deck - Singleton class
-	*************************/
 	var Deck = new function(){
 		this.ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 		this.suits = ['hearts', 'spades', 'diamonds','clubs'];
@@ -152,13 +103,6 @@ var BlackjackJS = (function() {
 		}
 
 	}
-
-	/**************************** End of Deck class *******************************/
-
-	/*************************
-		Game - Singleton class
-	**************************/
-
 	var Game = new function(){
 
 		/*
@@ -300,8 +244,6 @@ var BlackjackJS = (function() {
 
 	}
 
-	//Exposing the Game.init function
-	//to the outside world
 	return {
 		init: Game.init.bind(Game)
 	}
